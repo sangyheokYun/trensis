@@ -13,6 +13,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script src="js/makeChart.js"></script>
+        <script src="js/makeTrendChart.js"></script>
 
     </head>
     <body class="sb-nav-fixed" onload="searchAuthority(); searchClassify();">  <!--onload="getDocumentsTotal(); -->
@@ -36,7 +37,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="popular-search-word">
-                                <div class="side-bar-title"><img src="icon/search.svg" class="side-bar-img"> 실시간 인기검색어</div>
+                                <div class="side-bar-title"><img src="icon/search.svg" class="side-bar-img"> 실시간 인기 특허검색어</div>
                                 <div class="side-bar-content" th:text="'1. ' + ${todayWord.get('1')}">1. 솔</div>
                                 <div class="side-bar-content" th:text="'2. ' + ${todayWord.get('2')}">2. 신호</div>
                                 <div class="side-bar-content" th:text="'3. ' + ${todayWord.get('3')}">3. 샤워기</div>
@@ -76,6 +77,23 @@
                             <span th:text="${relationWord[stat.index] + ' |'}" class="breadcrumb-item active"></span>
                         </th:block>
                         <div style="height:1rem"></div>
+                        <div>
+                            <div class="card mb-4">
+                                <div class="card-header">
+                                    <i class="fas fa-chart-area me-1"></i>
+                                    검색 트렌드
+                                    <div style="float: right;">
+                                        <span>
+                                            <input type="text" id="cpword">
+                                        </span>
+                                        <span>
+                                            <input type="button" value="비교" onclick="compareWord()">
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="card-body"><center><div id="chart_trend" width="100%" height="40%"></div></center></div>
+                            </div>
+                        </div>
                         <div class="row">
                             <div class="col-xl-6">
                                 <div class="card mb-4">

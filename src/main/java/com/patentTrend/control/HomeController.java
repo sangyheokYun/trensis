@@ -53,5 +53,17 @@ public class HomeController {
         return map;
     }
 
+    @RequestMapping("/getTrendsValue")
+    @ResponseBody
+    public Map getTrendsValue(String searchWord, String date){
+        return trensisService.getTrendsValue(searchWord, date);
+    }
+
+    @RequestMapping("/getTrendsCompareValue")
+    @ResponseBody
+    public Map getTrendsCompareValue(String searchWord, String compareWord, String date){
+        return trensisService.getTrendsCompareValue(searchWord, compareWord, date);
+    }
+
 
 }

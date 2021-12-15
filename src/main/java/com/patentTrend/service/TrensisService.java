@@ -2,6 +2,8 @@ package com.patentTrend.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.HashMap;
 import java.util.List;
@@ -13,12 +15,14 @@ public class TrensisService {
     private KiprisService kiprisService;
     private TodayKiprisService todayKiprisService;
     private NaverService naverService;
+    private GoogleTrendsService googleTrendsService;
 
     @Autowired
-    public TrensisService(KiprisService kiprisService, TodayKiprisService todayKipris, NaverService naverService) {
+    public TrensisService(KiprisService kiprisService, TodayKiprisService todayKipris, NaverService naverService, GoogleTrendsService googleTrendsService) {
         this.kiprisService = kiprisService;
         this.todayKiprisService = todayKipris;
         this.naverService = naverService;
+        this.googleTrendsService = googleTrendsService;
     }
 
     public Map<String, Integer> getAuthorityTotal(String searchWord, String authority){
@@ -73,5 +77,20 @@ public class TrensisService {
         naverService.setSearchWord(searchWord);
         return naverService.getRelationWord();
     }
+
+    public Map<String, List> getTrendsValue(String searchWord, String date){
+        googleTrendsService.browserSetRun();
+        googleTrendsService.setSearchWord(searchWord, date);
+
+        return googleTrendsService.getTrendsValue();
+    }
+
+    public Map<String, List> getTrendsCompareValue(String searchWord, String compareWord, String date){
+        googleTrendsService.browserSetRun();
+        googleTrendsService.setSearchWord(searchWord, compareWord, date);
+
+        return googleTrendsService.getTrendsValue();
+    }
+
 
 }
