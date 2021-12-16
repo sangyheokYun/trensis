@@ -56,6 +56,14 @@ public class HomeController {
     @RequestMapping("/getTrendsValue")
     @ResponseBody
     public Map getTrendsValue(String searchWord, String date){
+//        Map<String, List> map = trensisService.getTrendsValue(searchWord, date);
+//        for (Map.Entry<String, List> entry : map.entrySet()) {
+//            String key   = entry.getKey();
+//            List value =  entry.getValue();
+//
+//            System.out.println(key + " : " + value);
+//        }
+        System.out.println("Controller getTrensValue 함수 실행");
         return trensisService.getTrendsValue(searchWord, date);
     }
 
