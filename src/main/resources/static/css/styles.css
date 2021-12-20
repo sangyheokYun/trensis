@@ -11486,10 +11486,26 @@ body {
   text-overflow: ellipsis;
   color: rgba(255, 255, 255, 0.4);
 }
-.side-bar-img{
-  width: 1.2rem;
+.side-bar-icon{
+  width: 1.1rem;
   filter: invert(89%) sepia(3%) saturate(14%) hue-rotate(264deg) brightness(119%) contrast(87%);
 }
+.body-icon{
+  width: 1.2rem;
+}
+.header-icon{
+  width: 1.5rem;
+  filter: invert(89%) sepia(3%) saturate(14%) hue-rotate(264deg) brightness(119%) contrast(87%);
+}
+.relationWord{
+  font-size: 0.85rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  padding: 0.2rem;
+  white-space:nowrap; overflow:hidden;
+  text-overflow: ellipsis;
+}
+
 /**
 *
 *

@@ -1,5 +1,6 @@
 package com.patentTrend.service;
 
+import com.patentTrend.model.dto.Patent;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -69,7 +70,7 @@ public class TrensisService {
         return todayKiprisService.getTodayWord();
     }
 
-    public Map<String, String> getTodayPatent(){
+    public Map<String, Patent> getTodayPatent(){
         return todayKiprisService.getTodayPatent();
     }
 

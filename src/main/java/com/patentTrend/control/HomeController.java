@@ -1,5 +1,6 @@
 package com.patentTrend.control;
 
+import com.patentTrend.model.dto.Patent;
 import com.patentTrend.service.TrensisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,7 +22,7 @@ public class HomeController {
     @GetMapping(value = "/")
     public String home(@RequestParam String searchWord, Model model){
         Map<String, String> todayWord = trensisService.getTodayWord(); // 인기검색어
-        Map<String, String> todayPatent = trensisService.getTodayPatent(); // 오늘의 특허
+        Map<String, Patent> todayPatent = trensisService.getTodayPatent(); // 오늘의 특허
         List<String> relationWord = trensisService.getRelationWord(searchWord); // 연관검색어
 
         model.addAttribute("searchWord", searchWord);

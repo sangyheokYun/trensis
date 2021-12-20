@@ -21,12 +21,12 @@
             <!-- Navbar Brand-->
             <a class="navbar-brand ps-3" href="/">TRENSIS</a>
             <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
+<!--            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>-->
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0" method="get" action="/?searchWord=searchword">
                 <div class="input-group">
                     <input class="form-control" type="text" name="searchWord" placeholder="Search" aria-label="Search for..." aria-describedby="btnNavbarSearch" />
-                    <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
+                    <button class="btn btn-primary" id="btnNavbarSearch" type="submit"><img src="icon/search.svg" class="header-icon"></button>
                 </div>
             </form>
 
@@ -37,7 +37,7 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="popular-search-word">
-                                <div class="side-bar-title"><img src="icon/search.svg" class="side-bar-img"> 실시간 특허검색어</div>
+                                <div class="side-bar-title"><img src="icon/searchInBar.svg" class="side-bar-icon"> 실시간 특허검색어</div>
                                 <div class="side-bar-content" th:text="'1. ' + ${todayWord.get('1')}">1. 솔</div>
                                 <div class="side-bar-content" th:text="'2. ' + ${todayWord.get('2')}">2. 신호</div>
                                 <div class="side-bar-content" th:text="'3. ' + ${todayWord.get('3')}">3. 샤워기</div>
@@ -50,17 +50,17 @@
                                 <div class="side-bar-content" th:text="'10. ' + ${todayWord.get('10')}">10. 믹스</div>
                             </div>
                             <div>
-                                <div class="side-bar-title"><img src="icon/document.svg" class="side-bar-img"> 오늘의 관심 특허</div>
-                                <div class="side-bar-content" th:text="'1. ' + ${todayPatent.get('1')}">1. 하우스의 식물 광합성촉진 장치</div>
-                                <div class="side-bar-content" th:text="'2. ' + ${todayPatent.get('2')}">2. 인간 인터페이스의 마인드 콘트롤 시스템</div>
-                                <div class="side-bar-content" th:text="'3. ' + ${todayPatent.get('3')}">3. 고속도로 과속 경보 시스템 및 방법</div>
-                                <div class="side-bar-content" th:text="'4. ' + ${todayPatent.get('4')}">4. 조명기구 장식용 빛 반사판</div>
-                                <div class="side-bar-content" th:text="'5. ' + ${todayPatent.get('5')}">5. 커먼 모드 노이즈 필터</div>
-                                <div class="side-bar-content" th:text="'6. ' + ${todayPatent.get('6')}">6. 친환경 이동식 화장실 ENVIRONME</div>
-                                <div class="side-bar-content" th:text="'7. ' + ${todayPatent.get('7')}">7. 연어의 정소로부터 고순도 피디알엔의 추출 방법</div>
-                                <div class="side-bar-content" th:text="'8. ' + ${todayPatent.get('8')}">8. 차량용 커넥터 CONNECTOR FOR </div>
-                                <div class="side-bar-content" th:text="'9. ' + ${todayPatent.get('9')}">9. 머신러닝이 적용된 변압기 설계 시스템</div>
-                                <div class="side-bar-content" th:text="'10. ' + ${todayPatent.get('10')}">10. 무정전 전원 시스템</div>
+                                <div class="side-bar-title"><img src="icon/document.svg" class="side-bar-icon"> 오늘의 관심 특허</div>
+                                <div class="side-bar-content" th:text="'1. ' + ${todayPatent.get('1').title}" th:attr="title=${todayPatent.get('1').title}">1. 하우스의 식물 광합성촉진 장치</div>
+                                <div class="side-bar-content" th:text="'2. ' + ${todayPatent.get('2').title}" th:attr="title=${todayPatent.get('2').title}">2. 인간 인터페이스의 마인드 콘트롤 시스템</div>
+                                <div class="side-bar-content" th:text="'3. ' + ${todayPatent.get('3').title}" th:attr="title=${todayPatent.get('3').title}">3. 고속도로 과속 경보 시스템 및 방법</div>
+                                <div class="side-bar-content" th:text="'4. ' + ${todayPatent.get('4').title}" th:attr="title=${todayPatent.get('4').title}">4. 조명기구 장식용 빛 반사판</div>
+                                <div class="side-bar-content" th:text="'5. ' + ${todayPatent.get('5').title}" th:attr="title=${todayPatent.get('5').title}">5. 커먼 모드 노이즈 필터</div>
+                                <div class="side-bar-content" th:text="'6. ' + ${todayPatent.get('6').title}" th:attr="title=${todayPatent.get('6').title}">6. 친환경 이동식 화장실 ENVIRONME</div>
+                                <div class="side-bar-content" th:text="'7. ' + ${todayPatent.get('7').title}" th:attr="title=${todayPatent.get('7').title}">7. 연어의 정소로부터 고순도 피디알엔의 추출 방법</div>
+                                <div class="side-bar-content" th:text="'8. ' + ${todayPatent.get('8').title}" th:attr="title=${todayPatent.get('8').title}">8. 차량용 커넥터 CONNECTOR FOR </div>
+                                <div class="side-bar-content" th:text="'9. ' + ${todayPatent.get('9').title}" th:attr="title=${todayPatent.get('9').title}">9. 머신러닝이 적용된 변압기 설계 시스템</div>
+                                <div class="side-bar-content" th:text="'10. ' + ${todayPatent.get('10').title}" th:attr="title=${todayPatent.get('10').title}">10. 무정전 전원 시스템</div>
                             </div>
 
                         </div>
@@ -72,16 +72,18 @@
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4" id="word" th:text="${searchWord}">검색어</h1>
-                        <span th:if="${relationWord.size() > 0}" th:text="${'|'}"></span>
-                        <th:block th:each="list, stat : ${relationWord}" class="breadcrumb mb-4">
-                            <span th:text="${relationWord[stat.index] + ' |'}" class="breadcrumb-item active"></span>
-                        </th:block>
+                        <div class="relationWord">
+                            <span th:if="${relationWord.size() > 0}" th:text="${'|'}"></span>
+                            <th:block th:each="list, stat : ${relationWord}" class="breadcrumb mb-4">
+                                <span th:text="${relationWord[stat.index] + ' |'}" class="breadcrumb-item active"></span>
+                            </th:block>
+                        </div>
                         <div style="height:1rem"></div>
                         <div>
                             <div class="card mb-4">
                                 <div class="card-header">
-                                    <i class="fas fa-chart-area me-1"></i>
-                                    검색 트렌드
+<!--                                    <i class="fas fa-chart-area me-1"></i>-->
+                                    <img src="icon/linegraph.svg" class="body-icon"> 검색량 추이
                                     <div style="float: right;">
                                         <span>
                                             <select id="dateSelect">
@@ -113,7 +115,7 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        특허·실용신안 분석
+                                        <img src="icon/piechart.svg" class="body-icon"> 특허·실용신안 분석
                                         <div style="float: right;">
                                             <span>
                                                 <select id="authoritySelect1">
@@ -133,7 +135,7 @@
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-bar me-1"></i>
-                                        연도별 분석
+                                        <img src="icon/bargraphWithString.svg" class="body-icon"> 특허·실용신안 연도별 분석
                                         <div style="float: right;">
                                             <span>
                                                 <select id="authoritySelect2">
