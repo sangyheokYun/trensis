@@ -20,13 +20,18 @@ function setDateCompareWord(){
 
 function getTrendsValue(){
     console.log("getTrendsValue함수 실행");
-    $.get(
-        "/getTrendsValue",
-        {
+    $.get({
+        type: "POST",
+        url: "https://api.trensis.site/api/getTrendsValue",
+        data: {
             searchWord:searchWord,
             date:date,
         },
-        function (trends){
+        beforeSend: function () {
+            $('#chart_trend').hide();
+            $('#searchChartLoadingImg').show().fadeIn('fast');
+        },
+        success: function (trends){
             console.log("ajax 결과 불러옴..");
             const keys = Object.keys(trends);
             dateArray = new Array(keys.length); // keys.length
@@ -49,29 +54,38 @@ function getTrendsValue(){
             trendsData = [['Year', searchWord]];
             makeValue();
         },
-        'json'
-    );
+        complete: function(){
+            $('#searchChartLoadingImg').hide();
+            $('#chart_trend').show();
+        },
+        //'json'
+    });
 }
 
 function getTrendsCompareValue(){
     console.log("getTrendsCompareValue함수 실행");
-    $.get(
-        "/getTrendsCompareValue",
-        {
-            searchWord:searchWord,
-            compareWord:compareWord,
-            date:date
+    $.get({
+        type: "POST",
+        url: "https://api.trensis.site/api/getTrendsCompareValue",
+        data: {
+            searchWord: searchWord,
+            compareWord: compareWord,
+            date: date
         },
-        function (trends){
+        beforeSend: function () {
+            $('#chart_trend').hide();
+            $('#searchChartLoadingImg').show().fadeIn('fast');
+        },
+        success: function (trends) {
             console.log("ajax 결과 불러옴..");
             const keys = Object.keys(trends);
             dateArray = new Array(keys.length); // keys.length
             valueArray = new Array(keys.length);
 
-            for(let i=0; i<keys.length; i++){
+            for (let i = 0; i < keys.length; i++) {
                 const key = keys[i]; //44_2007.8.1
                 var arr = keys[i].split("_"); // 44, 2007.8.1
-                const area = arr[0]-1; // 44
+                const area = arr[0] - 1; // 44
                 dateArray[area] = arr[1]; // 44 < 2007.8.1
                 valueArray[area] = trends[key];
 
@@ -85,8 +99,12 @@ function getTrendsCompareValue(){
             trendsData = [['Year', searchWord, compareWord]];
             makeValue();
         },
-        'json'
-    );
+        complete: function(){
+            $('#searchChartLoadingImg').hide();
+            $('#chart_trend').show();
+        },
+        //'json'
+    });
 }
 
 function consoleTest(){

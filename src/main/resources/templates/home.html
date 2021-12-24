@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>TRENSIS</title>
+    <link href="css/homeStyle.css" rel="stylesheet" />
+</head>
+<body>
+<div class="videoArea">
+    <video muted autoplay loop>
+        <source src="video/mainVideo.mp4" type="video/mp4">
+        <strong>Your browser does not support the video.tag</strong>
+    </video>
+    <div class="backArea"></div>
+    <div class="textArea">
+        <p class="intro" id="title">검색량, 특허 추세를 한눈에, TRENSIS</p>
+        <form method="get" action="/analysis?searchWord=searchWord">
+            <fieldset>
+                <input type="search" name="searchWord" placeholder="검색어 입력"/>
+                <button type="submit"><img src="icon/search.svg" class="header-icon"></button>
+            </fieldset>
+        </form>
+        <h2 class="intro">Trends Analysis</h2>
+        <h3 class="intro">키워드 분석을 통해 콘텐츠 유입률을 늘리고, 아이디어를 구상해 보세요.</h3>
+    </div>
+</div>
+</body>
+</html>

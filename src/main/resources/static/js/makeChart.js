@@ -21,17 +21,22 @@ function searchClassify(){ // onchange="searchClassify(this)"
     getDocumentsYearTotal();
 }
 
-//$(document).ready(
 function getAuthorityTotal(){
     var searchWord = $('h1#word').text();
 
-    $.get(
-        "/getAuthorityTotal",
-        {
-            searchWord:searchWord,
-            authority:authority1
+    $.get({
+        type: "POST",
+        url: "https://api.trensis.site/api/getAuthorityTotal",
+        data: {
+            searchWord: searchWord,
+            authority: authority1
         },
-        function (total){
+        beforeSend: function () {
+            $('#chart_patent').hide();
+            $('#patentChartLoadingImg').show().fadeIn('fast');
+        },
+        success: function (total) {
+            console.log("로딩완료");
             공개 = total[authority1 + "_" + "공개"];
             취하 = total[authority1 + "_" + "취하"];
             소멸 = total[authority1 + "_" + "소멸"];
@@ -41,22 +46,31 @@ function getAuthorityTotal(){
             등록 = total[authority1 + "_" + "등록"];
             loadPatentChart();
         },
-        'json'
-    );
+        complete: function(){
+            $('#patentChartLoadingImg').hide();
+            $('#chart_patent').show();
+        },
+        //'json'
+    });
 }
 
 function getDocumentsYearTotal(){
     var searchWord = $('h1#word').text();
 
-    $.get(
-        "/getDocumentsYearTotal",
-        {
+    $.get({
+        type: "POST",
+        url: "https://api.trensis.site/api/getDocumentsYearTotal",
+        data: {
             searchWord:searchWord,
             authority:authority2,
             administration:administration2,
             classify:classify2
         },
-        function (yearTotal){
+        beforeSend: function () {
+            $('#chart_year').hide();
+            $('#yearChartLoadingImg').show().fadeIn('fast');
+        },
+        success: function (yearTotal){
             _2000 = yearTotal[authority2 + "_" + administration2  + "_" + classify2 + "_" + "2000"];
             _2001 = yearTotal[authority2 + "_" + administration2  + "_" + classify2 + "_" + "2001"];
             _2002 = yearTotal[authority2 + "_" + administration2  + "_" + classify2 + "_" + "2002"];
@@ -81,8 +95,12 @@ function getDocumentsYearTotal(){
             _2021 = yearTotal[authority2 + "_" + administration2  + "_" + classify2 + "_" + "2021"];
             loadYearChart();
         },
-        'json'
-    );
+        complete: function(){
+            $('#yearChartLoadingImg').hide();
+            $('#chart_year').show();
+        },
+        //'json'
+    });
 }
 
 function loadPatentChart(){
