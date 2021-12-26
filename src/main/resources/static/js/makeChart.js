@@ -22,21 +22,22 @@ function searchClassify(){ // onchange="searchClassify(this)"
 }
 
 function getAuthorityTotal(){
+    console.log("Client(JS) : getAuthorityTotal - 각 권리(특허,실용) 갯수");
     var searchWord = $('h1#word').text();
 
     $.get({
-        type: "POST",
+        type: "GET",
         url: "https://api.trensis.site/api/getAuthorityTotal",
         data: {
             searchWord: searchWord,
             authority: authority1
         },
         beforeSend: function () {
+            console.log("Client(JS) : getAuthorityTotal - ajax통신중");
             $('#chart_patent').hide();
             $('#patentChartLoadingImg').show().fadeIn('fast');
         },
         success: function (total) {
-            console.log("로딩완료");
             공개 = total[authority1 + "_" + "공개"];
             취하 = total[authority1 + "_" + "취하"];
             소멸 = total[authority1 + "_" + "소멸"];
@@ -44,6 +45,7 @@ function getAuthorityTotal(){
             무효 = total[authority1 + "_" + "무효"];
             거절 = total[authority1 + "_" + "거절"];
             등록 = total[authority1 + "_" + "등록"];
+            console.log("Client(JS) : getAuthorityTotal - ajax통신완료");
             loadPatentChart();
         },
         complete: function(){
@@ -55,10 +57,11 @@ function getAuthorityTotal(){
 }
 
 function getDocumentsYearTotal(){
+    console.log("Client(JS) : getDocumentsYearTotal - 각 권리(특허,실용)를 진행상태로 분류한 년도별 갯수");
     var searchWord = $('h1#word').text();
 
     $.get({
-        type: "POST",
+        type: "GET",
         url: "https://api.trensis.site/api/getDocumentsYearTotal",
         data: {
             searchWord:searchWord,
@@ -67,6 +70,7 @@ function getDocumentsYearTotal(){
             classify:classify2
         },
         beforeSend: function () {
+            console.log("Client(JS) : getDocumentsYearTotal - ajax통신중");
             $('#chart_year').hide();
             $('#yearChartLoadingImg').show().fadeIn('fast');
         },
@@ -93,6 +97,7 @@ function getDocumentsYearTotal(){
             _2019 = yearTotal[authority2 + "_" + administration2  + "_" + classify2 + "_" + "2019"];
             _2020 = yearTotal[authority2 + "_" + administration2  + "_" + classify2 + "_" + "2020"];
             _2021 = yearTotal[authority2 + "_" + administration2  + "_" + classify2 + "_" + "2021"];
+            console.log("Client(JS) : getDocumentsYearTotal - ajax 통신완료");
             loadYearChart();
         },
         complete: function(){

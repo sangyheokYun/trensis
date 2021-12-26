@@ -3,7 +3,6 @@ var dateArray, valueArray;
 var trendsData;
 
 function setDateCompareWord(){
-    console.log("setDateCompareWord함수 실행");
     var dateIndex = document.getElementById("dateSelect").options.selectedIndex;
     date = document.getElementById("dateSelect").options[dateIndex].value;
     searchWord = $('h1#word').text();
@@ -19,15 +18,16 @@ function setDateCompareWord(){
 }
 
 function getTrendsValue(){
-    console.log("getTrendsValue함수 실행");
+    console.log("Client(JS) : getTrendsValue - 검색량 추이");
     $.get({
-        type: "POST",
+        type: "GET",
         url: "https://api.trensis.site/api/getTrendsValue",
         data: {
             searchWord:searchWord,
             date:date,
         },
         beforeSend: function () {
+            console.log("Client(JS) : getTrendsValue - ajax통신중");
             $('#chart_trend').hide();
             $('#searchChartLoadingImg').show().fadeIn('fast');
         },
@@ -52,6 +52,7 @@ function getTrendsValue(){
             }
 
             trendsData = [['Year', searchWord]];
+            console.log("Client(JS) : getTrendsValue - ajax통신완료");
             makeValue();
         },
         complete: function(){
@@ -63,9 +64,9 @@ function getTrendsValue(){
 }
 
 function getTrendsCompareValue(){
-    console.log("getTrendsCompareValue함수 실행");
+    console.log("Client(JS) : getTrendsCompareValue - 비교 단어 검색량 추이");
     $.get({
-        type: "POST",
+        type: "GET",
         url: "https://api.trensis.site/api/getTrendsCompareValue",
         data: {
             searchWord: searchWord,
@@ -73,11 +74,11 @@ function getTrendsCompareValue(){
             date: date
         },
         beforeSend: function () {
+            console.log("Client(JS) : getTrendsCompareValue - ajax통신중");
             $('#chart_trend').hide();
             $('#searchChartLoadingImg').show().fadeIn('fast');
         },
         success: function (trends) {
-            console.log("ajax 결과 불러옴..");
             const keys = Object.keys(trends);
             dateArray = new Array(keys.length); // keys.length
             valueArray = new Array(keys.length);
@@ -97,6 +98,7 @@ function getTrendsCompareValue(){
             }
 
             trendsData = [['Year', searchWord, compareWord]];
+            console.log("Client(JS) : getTrendsCompareValue - ajax통신완료");
             makeValue();
         },
         complete: function(){
