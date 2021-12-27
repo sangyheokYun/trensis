@@ -34,29 +34,29 @@
                         <div class="nav">
                             <div class="popular-search-word">
                                 <div class="side-bar-title"><img src="icon/searchInBar.svg" class="side-bar-icon"> 실시간 특허검색어</div>
-                                <div class="side-bar-content" th:text="'1. ' + ${todayWord.get('1')}">1. 솔</div>
-                                <div class="side-bar-content" th:text="'2. ' + ${todayWord.get('2')}">2. 신호</div>
-                                <div class="side-bar-content" th:text="'3. ' + ${todayWord.get('3')}">3. 샤워기</div>
-                                <div class="side-bar-content" th:text="'4. ' + ${todayWord.get('4')}">4. PROBIOTICS</div>
-                                <div class="side-bar-content" th:text="'5. ' + ${todayWord.get('5')}">5. COMPOSITION</div>
-                                <div class="side-bar-content" th:text="'6. ' + ${todayWord.get('6')}">6. 커피잔</div>
-                                <div class="side-bar-content" th:text="'7. ' + ${todayWord.get('7')}">7. SHOWERHEAD</div>
-                                <div class="side-bar-content" th:text="'8. ' + ${todayWord.get('8')}">8. 컨테이너</div>
-                                <div class="side-bar-content" th:text="'9. ' + ${todayWord.get('9')}">9. WATER</div>
-                                <div class="side-bar-content" th:text="'10. ' + ${todayWord.get('10')}">10. 믹스</div>
+                                <div class="side-bar-content" th:text="'1. ' + ${todayWord.get('1')}" th:onclick="'location.href=\'/analysis?searchWord=' + @{${todayWord.get('1')}} + '\''">1. 솔</div>
+                                <div class="side-bar-content" th:text="'2. ' + ${todayWord.get('2')}" th:onclick="'location.href=\'/analysis?searchWord=' + @{${todayWord.get('2')}} + '\''">2. 신호</div>
+                                <div class="side-bar-content" th:text="'3. ' + ${todayWord.get('3')}" th:onclick="'location.href=\'/analysis?searchWord=' + @{${todayWord.get('3')}} + '\''">3. 샤워기</div>
+                                <div class="side-bar-content" th:text="'4. ' + ${todayWord.get('4')}" th:onclick="'location.href=\'/analysis?searchWord=' + @{${todayWord.get('4')}} + '\''">4. PROBIOTICS</div>
+                                <div class="side-bar-content" th:text="'5. ' + ${todayWord.get('5')}" th:onclick="'location.href=\'/analysis?searchWord=' + @{${todayWord.get('5')}} + '\''">5. COMPOSITION</div>
+                                <div class="side-bar-content" th:text="'6. ' + ${todayWord.get('6')}" th:onclick="'location.href=\'/analysis?searchWord=' + @{${todayWord.get('6')}} + '\''">6. 커피잔</div>
+                                <div class="side-bar-content" th:text="'7. ' + ${todayWord.get('7')}" th:onclick="'location.href=\'/analysis?searchWord=' + @{${todayWord.get('7')}} + '\''">7. SHOWERHEAD</div>
+                                <div class="side-bar-content" th:text="'8. ' + ${todayWord.get('8')}" th:onclick="'location.href=\'/analysis?searchWord=' + @{${todayWord.get('8')}} + '\''">8. 컨테이너</div>
+                                <div class="side-bar-content" th:text="'9. ' + ${todayWord.get('9')}" th:onclick="'location.href=\'/analysis?searchWord=' + @{${todayWord.get('9')}} + '\''">9. WATER</div>
+                                <div class="side-bar-content" th:text="'10. ' + ${todayWord.get('10')}" th:onclick="'location.href=\'/analysis?searchWord=' + @{${todayWord.get('10')}} + '\''">10. 믹스</div>
                             </div>
                             <div>
                                 <div class="side-bar-title"><img src="icon/document.svg" class="side-bar-icon"> 오늘의 관심 특허</div>
-                                <div class="side-bar-content" th:text="'1. ' + ${todayPatent.get('1').title}" th:attr="title=${todayPatent.get('1').title}">1. 하우스의 식물 광합성촉진 장치</div>
-                                <div class="side-bar-content" th:text="'2. ' + ${todayPatent.get('2').title}" th:attr="title=${todayPatent.get('2').title}">2. 인간 인터페이스의 마인드 콘트롤 시스템</div>
-                                <div class="side-bar-content" th:text="'3. ' + ${todayPatent.get('3').title}" th:attr="title=${todayPatent.get('3').title}">3. 고속도로 과속 경보 시스템 및 방법</div>
-                                <div class="side-bar-content" th:text="'4. ' + ${todayPatent.get('4').title}" th:attr="title=${todayPatent.get('4').title}">4. 조명기구 장식용 빛 반사판</div>
-                                <div class="side-bar-content" th:text="'5. ' + ${todayPatent.get('5').title}" th:attr="title=${todayPatent.get('5').title}">5. 커먼 모드 노이즈 필터</div>
-                                <div class="side-bar-content" th:text="'6. ' + ${todayPatent.get('6').title}" th:attr="title=${todayPatent.get('6').title}">6. 친환경 이동식 화장실 ENVIRONME</div>
-                                <div class="side-bar-content" th:text="'7. ' + ${todayPatent.get('7').title}" th:attr="title=${todayPatent.get('7').title}">7. 연어의 정소로부터 고순도 피디알엔의 추출 방법</div>
-                                <div class="side-bar-content" th:text="'8. ' + ${todayPatent.get('8').title}" th:attr="title=${todayPatent.get('8').title}">8. 차량용 커넥터 CONNECTOR FOR </div>
-                                <div class="side-bar-content" th:text="'9. ' + ${todayPatent.get('9').title}" th:attr="title=${todayPatent.get('9').title}">9. 머신러닝이 적용된 변압기 설계 시스템</div>
-                                <div class="side-bar-content" th:text="'10. ' + ${todayPatent.get('10').title}" th:attr="title=${todayPatent.get('10').title}">10. 무정전 전원 시스템</div>
+                                <div class="side-bar-content" th:text="'1. ' + ${todayPatent.get('1').title}" th:attr="title=${todayPatent.get('1').title}" th:onclick="'window.open(\'' + @{${todayPatent.get('1').link}} + '\')'">1. 하우스의 식물 광합성촉진 장치</div>
+                                <div class="side-bar-content" th:text="'2. ' + ${todayPatent.get('2').title}" th:attr="title=${todayPatent.get('2').title}" th:onclick="'window.open(\'' + @{${todayPatent.get('2').link}} + '\')'">2. 인간 인터페이스의 마인드 콘트롤 시스템</div>
+                                <div class="side-bar-content" th:text="'3. ' + ${todayPatent.get('3').title}" th:attr="title=${todayPatent.get('3').title}" th:onclick="'window.open(\'' + @{${todayPatent.get('3').link}} + '\')'">3. 고속도로 과속 경보 시스템 및 방법</div>
+                                <div class="side-bar-content" th:text="'4. ' + ${todayPatent.get('4').title}" th:attr="title=${todayPatent.get('4').title}" th:onclick="'window.open(\'' + @{${todayPatent.get('4').link}} + '\')'">4. 조명기구 장식용 빛 반사판</div>
+                                <div class="side-bar-content" th:text="'5. ' + ${todayPatent.get('5').title}" th:attr="title=${todayPatent.get('5').title}" th:onclick="'window.open(\'' + @{${todayPatent.get('5').link}} + '\')'">5. 커먼 모드 노이즈 필터</div>
+                                <div class="side-bar-content" th:text="'6. ' + ${todayPatent.get('6').title}" th:attr="title=${todayPatent.get('6').title}" th:onclick="'window.open(\'' + @{${todayPatent.get('6').link}} + '\')'">6. 친환경 이동식 화장실 ENVIRONME</div>
+                                <div class="side-bar-content" th:text="'7. ' + ${todayPatent.get('7').title}" th:attr="title=${todayPatent.get('7').title}" th:onclick="'window.open(\'' + @{${todayPatent.get('7').link}} + '\')'">7. 연어의 정소로부터 고순도 피디알엔의 추출 방법</div>
+                                <div class="side-bar-content" th:text="'8. ' + ${todayPatent.get('8').title}" th:attr="title=${todayPatent.get('8').title}" th:onclick="'window.open(\'' + @{${todayPatent.get('8').link}} + '\')'">8. 차량용 커넥터 CONNECTOR FOR </div>
+                                <div class="side-bar-content" th:text="'9. ' + ${todayPatent.get('9').title}" th:attr="title=${todayPatent.get('9').title}" th:onclick="'window.open(\'' + @{${todayPatent.get('9').link}} + '\')'">9. 머신러닝이 적용된 변압기 설계 시스템</div>
+                                <div class="side-bar-content" th:text="'10. ' + ${todayPatent.get('10').title}" th:attr="title=${todayPatent.get('10').title}" th:onclick="'window.open(\'' + @{${todayPatent.get('10').link}} + '\')'">10. 무정전 전원 시스템</div>
                             </div>
 
                         </div>
@@ -71,7 +71,8 @@
                         <div class="relationWord">
                             <span th:if="${relationWord.size() > 0}" th:text="${'|'}" class="breadcrumb-item active"></span>
                             <th:block th:each="list, stat : ${relationWord}" class="breadcrumb mb-4">
-                                <span th:text="${relationWord[stat.index] + ' |'}" class="breadcrumb-item active"></span>
+                                <span th:text="${relationWord[stat.index]}" th:onclick="'location.href=\'/analysis?searchWord=' + @{${relationWord[stat.index]}} + '\''" class="breadcrumb-item active rel"></span>
+                                <span th:if="${relationWord.size() > 0}" th:text="${'|'}" class="breadcrumb-item active"></span>
                             </th:block>
                         </div>
                         <div style="height:1rem"></div>
