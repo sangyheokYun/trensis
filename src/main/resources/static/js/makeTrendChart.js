@@ -19,9 +19,9 @@ function setDateCompareWord(){
 
 function getTrendsValue(){
     console.log("Client(JS) : getTrendsValue - 검색량 추이");
-    $.get({
+    $.ajax({
+        url: "/getTrendsValue",
         type: "GET",
-        url: "https://api.trensis.site/api/getTrendsValue",
         data: {
             searchWord:searchWord,
             date:date,
@@ -32,7 +32,6 @@ function getTrendsValue(){
             $('#searchChartLoadingImg').show().fadeIn('fast');
         },
         success: function (trends){
-            console.log("ajax 결과 불러옴..");
             const keys = Object.keys(trends);
             dateArray = new Array(keys.length); // keys.length
             valueArray = new Array(keys.length);
@@ -59,15 +58,14 @@ function getTrendsValue(){
             $('#searchChartLoadingImg').hide();
             $('#chart_trend').show();
         },
-        //'json'
     });
 }
 
 function getTrendsCompareValue(){
     console.log("Client(JS) : getTrendsCompareValue - 비교 단어 검색량 추이");
-    $.get({
+    $.ajax({
+        url: "/getTrendsCompareValue",
         type: "GET",
-        url: "https://api.trensis.site/api/getTrendsCompareValue",
         data: {
             searchWord: searchWord,
             compareWord: compareWord,
@@ -105,7 +103,6 @@ function getTrendsCompareValue(){
             $('#searchChartLoadingImg').hide();
             $('#chart_trend').show();
         },
-        //'json'
     });
 }
 

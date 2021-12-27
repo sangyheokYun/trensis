@@ -25,9 +25,9 @@ function getAuthorityTotal(){
     console.log("Client(JS) : getAuthorityTotal - 각 권리(특허,실용) 갯수");
     var searchWord = $('h1#word').text();
 
-    $.get({
+    $.ajax({
+        url: "/getAuthorityTotal",
         type: "GET",
-        url: "https://api.trensis.site/api/getAuthorityTotal",
         data: {
             searchWord: searchWord,
             authority: authority1
@@ -52,7 +52,6 @@ function getAuthorityTotal(){
             $('#patentChartLoadingImg').hide();
             $('#chart_patent').show();
         },
-        //'json'
     });
 }
 
@@ -60,9 +59,9 @@ function getDocumentsYearTotal(){
     console.log("Client(JS) : getDocumentsYearTotal - 각 권리(특허,실용)를 진행상태로 분류한 년도별 갯수");
     var searchWord = $('h1#word').text();
 
-    $.get({
+    $.ajax({
+        url: "/getDocumentsYearTotal",
         type: "GET",
-        url: "https://api.trensis.site/api/getDocumentsYearTotal",
         data: {
             searchWord:searchWord,
             authority:authority2,
@@ -104,7 +103,6 @@ function getDocumentsYearTotal(){
             $('#yearChartLoadingImg').hide();
             $('#chart_year').show();
         },
-        //'json'
     });
 }
 
