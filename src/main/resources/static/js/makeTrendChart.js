@@ -141,8 +141,8 @@ function drawTrendChart(){
         chartArea:{width:'90%', height:'80%', top:10},
         legend:{position:'none'},
         hAxis: {title: '기간'},
-        vAxis: {title: '검색량'},
-        curveType:'function'
+        vAxis: {title: '검색량',minValue:0},
+        //curveType:'function'
     };
 
     var chart = new google.visualization.LineChart(document.getElementById('chart_trend'));
