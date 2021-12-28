@@ -18,7 +18,7 @@ function setDateCompareWord(){
 }
 
 function getTrendsValue(){
-    console.log("Client(JS) : getTrendsValue - 검색량 추이");
+    //console.log("Client(JS) : getTrendsValue - 검색량 추이");
     $.ajax({
         url: "/getTrendsValue",
         type: "GET",
@@ -27,7 +27,7 @@ function getTrendsValue(){
             date:date,
         },
         beforeSend: function () {
-            console.log("Client(JS) : getTrendsValue - ajax통신중");
+            //console.log("Client(JS) : getTrendsValue - ajax통신중");
             $('#chart_trend').hide();
             $('#searchChartLoadingImg').show().fadeIn('fast');
         },
@@ -51,7 +51,7 @@ function getTrendsValue(){
             }
 
             trendsData = [['Year', searchWord]];
-            console.log("Client(JS) : getTrendsValue - ajax통신완료");
+            //console.log("Client(JS) : getTrendsValue - ajax통신완료");
             makeValue();
         },
         complete: function(){
@@ -62,7 +62,7 @@ function getTrendsValue(){
 }
 
 function getTrendsCompareValue(){
-    console.log("Client(JS) : getTrendsCompareValue - 비교 단어 검색량 추이");
+    //console.log("Client(JS) : getTrendsCompareValue - 비교 단어 검색량 추이");
     $.ajax({
         url: "/getTrendsCompareValue",
         type: "GET",
@@ -72,7 +72,7 @@ function getTrendsCompareValue(){
             date: date
         },
         beforeSend: function () {
-            console.log("Client(JS) : getTrendsCompareValue - ajax통신중");
+            //console.log("Client(JS) : getTrendsCompareValue - ajax통신중");
             $('#chart_trend').hide();
             $('#searchChartLoadingImg').show().fadeIn('fast');
         },
@@ -96,7 +96,7 @@ function getTrendsCompareValue(){
             }
 
             trendsData = [['Year', searchWord, compareWord]];
-            console.log("Client(JS) : getTrendsCompareValue - ajax통신완료");
+            //console.log("Client(JS) : getTrendsCompareValue - ajax통신완료");
             makeValue();
         },
         complete: function(){
@@ -123,7 +123,6 @@ function makeValue(){
             trendsData.push([dateArray[i], valueArray[i][0], valueArray[i][1]]);
         }
     }
-    console.log(trendsData);
     loadTrendChart();
 }
 
